@@ -6,7 +6,7 @@ import (
 
 	"github.com/actgardner/gogen-avro/v10/compiler"
 	"github.com/actgardner/gogen-avro/v10/vm"
-	"github.com/nrwiersma/avro-benchmarks/models"
+	"github.com/iskorotkov/avro-benchmarks/models"
 	"github.com/stretchr/testify/assert"
 )
 

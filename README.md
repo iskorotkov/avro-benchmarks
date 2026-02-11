@@ -13,7 +13,7 @@
 ```
 goos: darwin
 goarch: arm64
-pkg: github.com/nrwiersma/avro-benchmarks
+pkg: github.com/iskorotkov/avro-benchmarks
 cpu: Apple M4 Pro
 BenchmarkGoAvroDecode-12        	 1262725	       952.7 ns/op	     418 B/op      27 allocs/op
 BenchmarkGoAvroEncode-12        	  921210	      1285 ns/op	     883 B/op      63 allocs/op

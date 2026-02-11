@@ -1,4 +1,4 @@
-module github.com/nrwiersma/avro-benchmarks
+module github.com/iskorotkov/avro-benchmarks
 
 go 1.26.0
 
