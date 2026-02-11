@@ -6,7 +6,7 @@ require (
 	github.com/actgardner/gogen-avro/v10 v10.2.1
 	github.com/hamba/avro/v2 v2.31.0
 	github.com/heetch/avro v0.4.79
-	github.com/iskorotkov/avro/v2 v2.31.1-0.20260209231611-d589393420ab
+	github.com/iskorotkov/avro/v2 v2.31.1-0.20260211215703-d2e98eb188aa
 	github.com/linkedin/goavro/v2 v2.15.0
 	github.com/stretchr/testify v1.11.1
 	gopkg.in/avro.v0 v0.0.0-20171217001914-a730b5802183
