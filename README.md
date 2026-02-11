@@ -2,22 +2,27 @@
 
 #### Libraries
 
-* [github.com/hamba/avro](https://github.com/hamba/avro)
+* [github.com/iskorotkov/avro/v2](https://github.com/iskorotkov/avro)
+* [github.com/hamba/avro/v2](https://github.com/hamba/avro)
 * [github.com/go-avro/avro](https://github.com/go-avro/avro)
 * [github.com/linkedin/goavro/v2](https://github.com/linkedin/goavro)
 * [github.com/actgardner/gogen-avro/v9](https://github.com/actgardner/gogen-avro)
 
 #### Results
 
-Go: 1.20 Machine: Macbook Pro M1
-
 ```
-BenchmarkGoAvroDecode-8      	  732993	      1570 ns/op	     418 B/op	      27 allocs/op
-BenchmarkGoAvroEncode-8      	  589030	      1953 ns/op	     819 B/op	      63 allocs/op
-BenchmarkGoGenAvroDecode-8   	 1338111	       896.1 ns/op	     320 B/op	      11 allocs/op
-BenchmarkGoGenAvroEncode-8   	 2870955	       416.9 ns/op	     240 B/op	       3 allocs/op
-BenchmarkHambaDecode-8       	 4168944	       287.9 ns/op	      64 B/op	       4 allocs/op
-BenchmarkHambaEncode-8       	 5691699	       215.1 ns/op	     112 B/op	       1 allocs/op
-BenchmarkLinkedinDecode-8    	 1000000	      1026 ns/op	    1688 B/op	      35 allocs/op
-BenchmarkLinkedinEncode-8    	 3149337	       382.6 ns/op	     248 B/op	       5 allocs/op
+goos: darwin
+goarch: arm64
+pkg: github.com/nrwiersma/avro-benchmarks
+cpu: Apple M4 Pro
+BenchmarkGoAvroDecode-12        	 1262725	       952.7 ns/op	     418 B/op      27 allocs/op
+BenchmarkGoAvroEncode-12        	  921210	      1285 ns/op	     883 B/op      63 allocs/op
+BenchmarkGoGenAvroDecode-12     	 2628411	       464.0 ns/op	     320 B/op      11 allocs/op
+BenchmarkGoGenAvroEncode-12     	 4695589	       233.8 ns/op	     240 B/op       3 allocs/op
+BenchmarkHambaDecode-12         	 8214915	       144.9 ns/op	      47 B/op       0 allocs/op
+BenchmarkHambaEncode-12         	 8826021	       136.4 ns/op	     112 B/op       1 allocs/op
+BenchmarkIskorotkovDecode-12    	 8174200	       145.7 ns/op	      47 B/op       0 allocs/op
+BenchmarkIskorotkovEncode-12    	 8739876	       138.0 ns/op	     112 B/op       1 allocs/op
+BenchmarkLinkedinDecode-12      	 1925295	       622.8 ns/op	    1688 B/op      35 allocs/op
+BenchmarkLinkedinEncode-12      	 4478540	       270.0 ns/op	     248 B/op       5 allocs/op
 ```

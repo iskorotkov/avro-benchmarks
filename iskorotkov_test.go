@@ -3,11 +3,11 @@ package avro_benchmarks
 import (
 	"testing"
 
-	"github.com/hamba/avro/v2"
+	"github.com/iskorotkov/avro/v2"
 	"github.com/stretchr/testify/assert"
 )
 
-func TestHambaDecode(t *testing.T) {
+func TestIskorotkovDecode(t *testing.T) {
 	schema := avro.MustParse(Schema)
 
 	superhero := Superhero{}
@@ -29,7 +29,7 @@ func TestHambaDecode(t *testing.T) {
 	assert.Equal(t, want, superhero)
 }
 
-func BenchmarkHambaDecode(b *testing.B) {
+func BenchmarkIskorotkovDecode(b *testing.B) {
 	schema := avro.MustParse(Schema)
 
 	superhero := Superhero{}
@@ -41,7 +41,7 @@ func BenchmarkHambaDecode(b *testing.B) {
 	}
 }
 
-func TestHambaEncode(t *testing.T) {
+func TestIskorotkovEncode(t *testing.T) {
 	schema := avro.MustParse(Schema)
 
 	superhero := Superhero{
@@ -63,7 +63,7 @@ func TestHambaEncode(t *testing.T) {
 	assert.Equal(t, Payload, b)
 }
 
-func BenchmarkHambaEncode(b *testing.B) {
+func BenchmarkIskorotkovEncode(b *testing.B) {
 	schema := avro.MustParse(Schema)
 
 	superhero := Superhero{

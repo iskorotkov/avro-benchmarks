@@ -44,8 +44,8 @@ func BenchmarkGoAvroDecode(b *testing.B) {
 	superhero := Superhero{}
 
 	b.ReportAllocs()
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
+
+	for b.Loop() {
 		decoder := avro.NewBinaryDecoder(Payload)
 		_ = reader.Read(&superhero, decoder)
 	}
@@ -102,8 +102,8 @@ func BenchmarkGoAvroEncode(b *testing.B) {
 	}
 
 	b.ReportAllocs()
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
+
+	for b.Loop() {
 		_ = writer.Write(&superhero, encoder)
 	}
 }

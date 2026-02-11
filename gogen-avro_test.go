@@ -38,8 +38,8 @@ func BenchmarkGoGenAvroDecode(b *testing.B) {
 	r := bytes.NewReader(nil)
 
 	b.ReportAllocs()
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
+
+	for b.Loop() {
 		t := models.NewSuperhero()
 
 		r.Reset(Payload)
@@ -83,8 +83,8 @@ func BenchmarkGoGenAvroEncode(b *testing.B) {
 	}
 
 	b.ReportAllocs()
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
+
+	for b.Loop() {
 		buf := bytes.Buffer{}
 		_ = superhero.Serialize(&buf)
 	}

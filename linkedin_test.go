@@ -16,16 +16,16 @@ func TestLinkedinDecode(t *testing.T) {
 
 	superhero, _, err := codec.NativeFromBinary(Payload)
 
-	want := map[string]interface{}{
+	want := map[string]any{
 		"id":             int32(234765),
 		"affiliation_id": int32(9867),
 		"name":           "Wolverine",
 		"life":           float32(85.25),
 		"energy":         float32(32.75),
-		"powers": []interface{}{
-			map[string]interface{}{"id": int32(2345), "name": "Bone Claws", "damage": float32(5), "energy": float32(1.15), "passive": false},
-			map[string]interface{}{"id": int32(2346), "name": "Regeneration", "damage": float32(-2), "energy": float32(0.55), "passive": true},
-			map[string]interface{}{"id": int32(2347), "name": "Adamant skeleton", "damage": float32(-10), "energy": float32(0), "passive": true},
+		"powers": []any{
+			map[string]any{"id": int32(2345), "name": "Bone Claws", "damage": float32(5), "energy": float32(1.15), "passive": false},
+			map[string]any{"id": int32(2346), "name": "Regeneration", "damage": float32(-2), "energy": float32(0.55), "passive": true},
+			map[string]any{"id": int32(2347), "name": "Adamant skeleton", "damage": float32(-10), "energy": float32(0), "passive": true},
 		},
 	}
 	assert.NoError(t, err)
@@ -39,8 +39,8 @@ func BenchmarkLinkedinDecode(b *testing.B) {
 	}
 
 	b.ReportAllocs()
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
+
+	for b.Loop() {
 		_, _, _ = codec.NativeFromBinary(Payload)
 	}
 }
@@ -51,16 +51,16 @@ func TestLinkedinEncode(t *testing.T) {
 		log.Fatal(err)
 	}
 
-	superhero := map[string]interface{}{
+	superhero := map[string]any{
 		"id":             int32(234765),
 		"affiliation_id": int32(9867),
 		"name":           "Wolverine",
 		"life":           float32(85.25),
 		"energy":         float32(32.75),
-		"powers": []interface{}{
-			map[string]interface{}{"id": int32(2345), "name": "Bone Claws", "damage": float32(5), "energy": float32(1.15), "passive": false},
-			map[string]interface{}{"id": int32(2346), "name": "Regeneration", "damage": float32(-2), "energy": float32(0.55), "passive": true},
-			map[string]interface{}{"id": int32(2347), "name": "Adamant skeleton", "damage": float32(-10), "energy": float32(0), "passive": true},
+		"powers": []any{
+			map[string]any{"id": int32(2345), "name": "Bone Claws", "damage": float32(5), "energy": float32(1.15), "passive": false},
+			map[string]any{"id": int32(2346), "name": "Regeneration", "damage": float32(-2), "energy": float32(0.55), "passive": true},
+			map[string]any{"id": int32(2347), "name": "Adamant skeleton", "damage": float32(-10), "energy": float32(0), "passive": true},
 		},
 	}
 
@@ -76,22 +76,22 @@ func BenchmarkLinkedinEncode(b *testing.B) {
 		log.Fatal(err)
 	}
 
-	superhero := map[string]interface{}{
+	superhero := map[string]any{
 		"id":             int32(234765),
 		"affiliation_id": int32(9867),
 		"name":           "Wolverine",
 		"life":           float32(85.25),
 		"energy":         float32(32.75),
-		"powers": []interface{}{
-			map[string]interface{}{"id": int32(2345), "name": "Bone Claws", "damage": float32(5), "energy": float32(1.15), "passive": false},
-			map[string]interface{}{"id": int32(2346), "name": "Regeneration", "damage": float32(-2), "energy": float32(0.55), "passive": true},
-			map[string]interface{}{"id": int32(2347), "name": "Adamant skeleton", "damage": float32(-10), "energy": float32(0), "passive": true},
+		"powers": []any{
+			map[string]any{"id": int32(2345), "name": "Bone Claws", "damage": float32(5), "energy": float32(1.15), "passive": false},
+			map[string]any{"id": int32(2346), "name": "Regeneration", "damage": float32(-2), "energy": float32(0.55), "passive": true},
+			map[string]any{"id": int32(2347), "name": "Adamant skeleton", "damage": float32(-10), "energy": float32(0), "passive": true},
 		},
 	}
 
 	b.ReportAllocs()
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
+
+	for b.Loop() {
 		_, _ = codec.BinaryFromNative(nil, superhero)
 	}
 }
